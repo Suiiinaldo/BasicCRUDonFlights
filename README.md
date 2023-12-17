@@ -70,7 +70,7 @@ Lets take a look inside the `src` folder
     ```
         npm run dev
     ```
- - To use the create Airplane Feature, You need to migrate your db for that run the command :
+ - To use the create Airplane Feature, You need to migrate your db, for that run the command :
     ```
         npx sequelize db:migrate
     ```
