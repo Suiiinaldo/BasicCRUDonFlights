@@ -70,3 +70,11 @@ Lets take a look inside the `src` folder
     ```
         npm run dev
     ```
+ - To use the create Airplane Feature, You need to migrate your db for that run the command :
+    ```
+        npx sequelize db:migrate
+    ```
+ - After Migrating the db, You are good to use the Create Airplane Feature by sending the post request on the route:
+    ```
+        localhost:3000/api/v1/airplanes
+    ```
