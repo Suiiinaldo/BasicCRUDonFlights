@@ -15,7 +15,7 @@ function validateCreateRequest(req,res,next){
 }
 
 function validateUpdateRequest(req,res,next){
-    if(isNaN(req.query.capacity) || !req.query.capacity){
+    if(isNaN(req.body.capacity) || !req.body.capacity){
         ErrorResponse.message = "Something went wrong while updating airplane";
         ErrorResponse.error = new AppError([ "Capaity is not found or is not Integer in the oncoming request" ],StatusCodes.BAD_REQUEST);
         return res
