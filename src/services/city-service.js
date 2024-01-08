@@ -16,11 +16,40 @@ async function createCity(data){
             });
             throw new AppError(explanation,StatusCodes.BAD_REQUEST);
         }
-        throw new AppError('Cannot create a new City Object',StatusCodes.INTERNAL_SERVER_ERROR);
+        throw new AppError('Cannot create a new city Object',StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 
+async function destroyCity(id){
+    try {
+        const response = await cityRepository.destroy(id);
+        return response;
+    } catch (error) {
+        if(error.statusCodes == StatusCodes.NOT_FOUND){
+            throw new AppError(" The city you requested to delete is not present ", error.statusCodes);
+        }
+        throw new AppError('Cannot destroy data of the requested City',StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+async function updateCity(data,id)
+{
+    try {
+        const response = await cityRepository.update(data,id);
+        return response;
+    } catch (error) {
+        if(error.statusCodes == StatusCodes.NOT_FOUND){
+            throw new AppError("The city you requested to update is not present ", error.statusCodes);
+        }
+        throw new AppError('Cannot update data of the requested airplane',StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+
+
 module.exports = {
     createCity,
+    destroyCity,
+    updateCity,
 
 }
