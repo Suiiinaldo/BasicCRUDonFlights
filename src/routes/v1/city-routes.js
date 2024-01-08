@@ -16,7 +16,15 @@ router.delete("/:id",
 
 // api/v1/cities/:id PATCH
 router.patch("/:id",
-                CityMiddlewares.validateCreateUpdateRequest,
-                CityController.updateCity);
+            CityMiddlewares.validateCreateUpdateRequest,
+            CityController.updateCity);
+
+// /api/v1/cities GET
+router.get("/",
+            CityController.getCities);
+
+// /api/v1/cities/:id GET
+router.get("/:id",
+            CityController.getCity);
 
 module.exports = router;
